@@ -1,6 +1,52 @@
 
 -- E-Commerce Business Performance Analysis SQL Queries
 
+# Data base creation
+CREATE DATABASE ecommerce_sql_project;
+USE ecommerce_sql_project;
+
+# Table creation
+  CREATE TABLE customers(
+customer_id VARCHAR(50),
+customer_city VARCHAR(50),
+customer_state VARCHAR(10)
+);
+
+CREATE TABLE orders(
+order_id VARCHAR(50),
+customer_id VARCHAR(50),
+order_status VARCHAR(30),
+order_purchase_timestamp DATETIME,
+order_delivered_customer_date DATETIME,
+order_estimated_delivery_date DATETIME
+);
+
+CREATE TABLE order_items(
+order_id VARCHAR(50),
+product_id VARCHAR(50),
+price DECIMAL(10,2)
+);
+
+CREATE TABLE products(
+product_id VARCHAR(50),
+product_category_name VARCHAR(50)
+);
+
+CREATE TABLE payments(
+order_id VARCHAR(50),
+payment_type VARCHAR(20),
+payment_value DECIMAL(10,2)
+);
+
+CREATE TABLE reviews(
+order_id VARCHAR(50),
+review_score INT
+);
+
+
+
+
+
 -- 1. Total Revenue
 SELECT ROUND(SUM(price),2) AS total_revenue
 FROM order_items;
